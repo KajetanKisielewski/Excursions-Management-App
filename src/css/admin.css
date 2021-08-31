@@ -1,51 +1,100 @@
+:root {
+    font-size: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-ul {
-    list-style: none;
+.wrap {
+    max-width: 192rem;
+    min-height: 100vh;
+    background-image: url(../img/mountains.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
+.wrap__title {
+    padding: 1rem 0;
+    font-size: 5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 
 .panel {
     display: flex;
+    max-width: 120rem;
     margin: 0 auto;
-    max-width: 1200px;
-    padding: 30px 0;
 }
 
-.panel__excursins {
-    width: 70%;
-}
-
-.excursions {
+.panel__excursions {
     display: flex;
     flex-wrap: wrap;
+    flex-basis: 70%;
+    list-style: none;
 }
 
-.excurions__item {
+.excursions__item {
+    width: calc(50% - 2rem);
+    margin: 1rem;
+    padding: 2rem;
     border: 1px solid #bbb;
     border-radius: 5px;
-    margin: 10px;
-    padding: 20px;
-    width: calc(50% - 20px);
+    background-color: rgba(255, 255, 255, 0.3);
 }
+
+.excursions__title {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.excursions__description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.excursions__form {
+    font-size: 1.5rem;
+}
+
+.excursions__field {
+    margin-bottom: 1rem;
+}
+
+.excursions__field-input {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+}
+
+
 
 .panel__form {
-    background-color: #f4f4f4;
-    padding: 20px;
-    width: 30%;
+    margin-top: 1rem;
+    padding: 2rem;
+    flex-basis: 30%;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.uploader, .order {
+.uploader,
+.order {
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
 
+.form__label {
+    font-size: 1.5rem;
+}
+
 .form__field {
     display: block;
+    margin-bottom: 1rem;
 }
 
 .form__field--longtext {

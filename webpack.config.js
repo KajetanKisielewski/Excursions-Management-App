@@ -15,12 +15,13 @@ module.exports = {
         filename: '[name].min.js',
         // definiuję nazwę pliku wyjściowego
     },
+    target: 'web',
     devtool: 'inline-source-map',
     module: {
         rules: [
             {
                 test: /\.js$/,
-                // określam jakie pliki 
+                // określam jakie pliki
                 // będą brane pod uwagę
                 exclude: /node_modules/,
                 // określam wykluczenia
@@ -30,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                // określam jakie pliki 
+                // określam jakie pliki
                 // będą brane pod uwagę
                 exclude: /node_modules/,
                 // określam wykluczenia
