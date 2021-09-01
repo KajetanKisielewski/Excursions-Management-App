@@ -5,20 +5,20 @@ import ExcursionsAPI from './ExcursionsAPI';
 
 const init = () => {
     console.log('admin');
-    addExcursions()
+    addExcursions();
+    delateExcursion();
 }
 
 const addExcursions = () => {
 
     const form = document.querySelector('.form');
-    console.log(form);
 
     form.addEventListener('submit' , e => {
         e.preventDefault();
 
         console.log(e.currentTarget.elements)
 
-        const { name , description , adultPrice , childrenPrice } = e.target.elements;
+        const [ name , description, adultPrice, childrenPrice ] = e.target.elements;
 
         const data = {
             name: name.value,
@@ -27,10 +27,17 @@ const addExcursions = () => {
             childrenPrice: childrenPrice.value
         };
 
-        console.log(data)
-    })
-}
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        };
 
+        fetch('http://localhost:3000/excursions' , options)
+            // .then( resp => console.log(resp) )
+            // .catch( err => console.log(err) );
+    });
+}
 
 
 

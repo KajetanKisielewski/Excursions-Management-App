@@ -1,4 +1,26 @@
 {
-  "excursions": [],
+  "excursions": [
+    {
+      "name": "Kraków",
+      "description": "Kraków – miasto na prawach powiatu położone w południowej Polsce nad Wisłą, drugie co do liczby mieszkańców i powierzchni miasto kraju, formalna stolica Polski do 1795 r. i miasto koronacyjne oraz nekropolia królów Polski, od 1000 r. nieprzerwanie stolica diecezji krakowskiej, a od 1925 archidiecezji i metropolii.",
+      "adultPrice": "150",
+      "childrenPrice": "100",
+      "id": 1
+    },
+    {
+      "name": "Warszawa",
+      "description": "Warszawa, miasto stołeczne Warszawa – stolica Polski i województwa mazowieckiego, największe miasto w kraju, położone w jego centralnej części, na Nizinie Środkowomazowieckiej, na Mazowszu, nad Wisłą. Prawa miejskie uzyskała przed 1300.",
+      "adultPrice": "100",
+      "childrenPrice": "60",
+      "id": 2
+    },
+    {
+      "name": "Szczecin",
+      "description": "Szczecin – miasto na prawach powiatu, stolica i największe miasto województwa zachodniopomorskiego, położone na Pobrzeżu Szczecińskim, nad Odrą i jeziorem Dąbie. Historyczna stolica księstwa pomorskiego; później w granicach Szwecji, Brandenburgii, Prus i Niemiec, od 1945 roku należy do Polski.",
+      "adultPrice": "250",
+      "childrenPrice": "50",
+      "id": 3
+    }
+  ],
   "orders": []
 }
