@@ -40,5 +40,24 @@ const addExcursions = () => {
 }
 
 
+const delateExcursion = () => {
+    const ulEl = document.querySelector('.panel__excursions')
+
+    ulEl.addEventListener('click' , e => {
+        e.preventDefault()
+
+        const targetEl = e.target;
+        console.log(targetEl)
+
+        if(targetEl.tagName === 'LI') {
+            const id = targetEl.dataset.id;
+            console.log(id)
+        }
+    })
+}
+
+
+
+
 
 document.addEventListener('DOMContentLoaded' , init)
