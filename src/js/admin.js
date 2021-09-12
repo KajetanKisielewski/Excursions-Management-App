@@ -47,9 +47,8 @@ const delateExcursion = () => {
         e.preventDefault()
 
         const targetEl = e.target;
-        console.log(targetEl)
 
-        if(targetEl.tagName === 'LI') {
+        if(targetEl.tagName === 'INPUT') {
             const id = targetEl.dataset.id;
             console.log(id)
         }

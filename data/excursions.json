@@ -20,6 +20,20 @@
       "adultPrice": "250",
       "childrenPrice": "50",
       "id": 3
+    },
+    {
+      "name": "Egipt",
+      "description": "Egipt, nazwa oficjalna Arabska Republika Egiptu – państwo położone w północno-wschodniej Afryce z półwyspem Synaj w zachodniej Azji. Egipt graniczy z Izraelem i Palestyną na północnym wschodzie, Sudanem na południu i Libią na zachodzie. Od północy rozpościera się Morze Śródziemne, a na wschodzie Morze Czerwone.",
+      "adultPrice": "700",
+      "childrenPrice": "285",
+      "id": 4
+    },
+    {
+      "name": "Anglia",
+      "description": "Anglia – kraj stanowiący część Zjednoczonego Królestwa Wielkiej Brytanii i Irlandii Północnej. W przeszłości był niezależnym królestwem. Ma granice lądowe z Walią na zachodzie i Szkocją na północy. Kraj jest oblewany przez Morze Celtyckie i Morze Irlandzkie.",
+      "adultPrice": "430",
+      "childrenPrice": "180",
+      "id": 5
     }
   ],
   "orders": []

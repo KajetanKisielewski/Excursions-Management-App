@@ -1,41 +1,103 @@
+:root {
+    font-size: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-ul {
-    list-style: none;
+.wrap {
+    max-width: 192rem;
+    min-height: 100vh;
+    background-image: url(../img/ocean.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .panel {
     display: flex;
+    max-width: 120rem;
+    max-height: 100vh;
     margin: 0 auto;
-    max-width: 1200px;
-    padding: 30px 0;
 }
 
-.panel__excursins {
-    width: 70%;
-}
-
-.excursions {
+.panel__excursions {
     display: flex;
     flex-wrap: wrap;
+    flex-basis: 70%;
+    list-style: none;
+    overflow-y: scroll;
 }
 
-.excurions__item {
-    border: 1px solid #bbb;
+
+.excursions__item {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(50% - 2rem);
+    border: 2px solid rgb(190, 190, 190);
     border-radius: 5px;
-    margin: 10px;
-    padding: 20px;
-    width: calc(50% - 20px);
+    margin: 1rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.excursions__item--prototype {
+    display: none;
+}
+
+.excursions__title {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.excursions__description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.excursions__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.excursions__field {
+    margin-bottom: 1rem;
+}
+
+.excursions__field-name {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+}
+
+.excursions__field-input--submit {
+    align-self: center;
+    display: block;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+
+}
+
+.panel__summary {
+    list-style: none;
+}
+
+.summary__item--prototype {
+    display: none;
 }
 
 .panel__form {
-    background-color: #f4f4f4;
-    padding: 20px;
-    width: 30%;
+    margin-top: 1rem;
+    padding: 2rem;
+    flex-basis: 30%;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .uploader,
@@ -43,4 +105,9 @@ ul {
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     padding-bottom: 20px;
+}
+
+.order__total-price,
+.order__field-name {
+    font-size: 1.5rem;
 }
