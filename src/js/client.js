@@ -2,6 +2,7 @@ import './../css/client.css';
 
 import ExcursionsAPI from './ExcursionsAPI';
 
+const api = new ExcursionsAPI();
 
 const init = () => {
 
@@ -15,11 +16,7 @@ const init = () => {
 
 const loadExcursions = () => {
 
-    fetch('http://localhost:3000/excursions')
-        .then( resp => {
-            if(resp.ok) { return resp.json(); }
-            return Promise.reject(resp);
-        })
+     api.loadData()
         .then( data => insertExcursions(data) )
         .catch( err => console.log(err) )
 }

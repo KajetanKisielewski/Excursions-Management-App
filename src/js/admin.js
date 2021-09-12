@@ -2,7 +2,7 @@ import './../css/admin.css';
 
 import ExcursionsAPI from './ExcursionsAPI';
 
-const apiUrl = "http://localhost:3000/excursions"
+const api = new ExcursionsAPI();
 
 const init = () => {
 
@@ -14,11 +14,7 @@ const init = () => {
 
 const loadExcursions = () => {
 
-    fetch(`${apiUrl}`)
-        .then( resp => {
-            if(resp.ok) { return resp.json(); }
-            return Promise.reject(resp);
-        })
+    api.loadData()
         .then( data => insertExcursions(data) )
         .catch( err => console.log(err) )
 }
@@ -62,14 +58,7 @@ const addExcursions = () => {
             childrenPrice: childrenPrice.value
         };
 
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {'Content-Type': 'application/json'}
-        };
-
-        fetch( `${apiUrl}` , options)
-            .then( resp => console.log(resp) )
+        api.addData(data)
             .catch( err => console.log(err) )
             .finally( loadExcursions );
     });
@@ -90,10 +79,8 @@ const delateExcursion = () => {
            const excursionItem = targetEl.parentElement.parentElement.parentElement;
            const excursionItemId = excursionItem.dataset.id;
 
-           const options = { method: 'DELETE' };
 
-           fetch( `${apiUrl}/${excursionItemId}` , options)
-               .then( resp => console.log(resp) )
+           api.delateData(excursionItemId)
                .catch( err => console.error(err) )
                .finally( loadExcursions )
         }
@@ -128,14 +115,8 @@ const updateExcursions = () => {
                     childrenPrice: strongList[1].innerText
                 };
 
-                const options = {
-                    method: 'PUT',
-                    body: JSON.stringify( data ),
-                    headers: { 'Content-Type': 'application/json' }
-                };
 
-                fetch(`${apiUrl}/${id}` , options)
-                    .then(resp => console.log(resp) )
+                api.updateData(data, id)
                     .catch( err => console.error(err) )
                     .finally( () => {
                         targetEl.value = 'edytuj';
