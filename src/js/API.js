@@ -1,4 +1,4 @@
-class ExcursionsAPI {
+class API {
 
     constructor() {
         this.url = 'http://localhost:3000/excursions'
@@ -48,4 +48,4 @@ class ExcursionsAPI {
     }
 }
 
-export default ExcursionsAPI;
+export default API;

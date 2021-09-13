@@ -1,16 +1,18 @@
 import './../css/client.css';
 
-import ExcursionsAPI from './ExcursionsAPI';
-
-const api = new ExcursionsAPI();
+import API from './API';
+import Excursions from './Excursions';
 
 const init = () => {
 
-    loadExcursions();
-    orderExcursion();
+    const api = new API();
+    const excursions = new Excursions(api);
 
-    addExcursionToSummary();
-    delateExcursionFromSummary()
+    excursions.loadExcursions();
+    excursions.addExcursionsToOrder();
+
+    // addExcursionToSummary();
+    // delateExcursionFromSummary()
 }
 
 
