@@ -93,6 +93,14 @@
     display: none;
 }
 
+.summary__title {
+    font-size: 2rem;
+}
+
+.summary__prices {
+    font-size: 1.5rem;
+}
+
 .panel__form {
     margin-top: 1rem;
     padding: 2rem;
