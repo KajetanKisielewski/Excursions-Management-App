@@ -1,9 +1,7 @@
 import './../css/admin.css';
 
 import API from './API';
-
 import Excursions from './Excursions';
-
 
 const init = () => {
 

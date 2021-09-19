@@ -1,12 +1,13 @@
 class API {
 
     constructor() {
-        this.url = 'http://localhost:3000/excursions'
+        this.excursionUrl = 'http://localhost:3000/excursions';
+        this.orderUrl = 'http://localhost:3000/orders';
     }
 
-    _fetch(options, additionalPath = '') {
+    _fetch(options, path , additionalPath = '') {
 
-        const url = this.url + additionalPath;
+        const url = path + additionalPath;
 
         return fetch( url , options )
             .then( resp => {
@@ -16,7 +17,8 @@ class API {
     }
 
     loadData() {
-        return this._fetch();
+        const options = { method: 'GET' };
+        return this._fetch(options , this.excursionUrl);
     }
 
     addData(data) {
@@ -27,13 +29,12 @@ class API {
             headers: {'Content-Type': 'application/json'}
         };
 
-       return this._fetch(options);
+       return this._fetch(options , this.excursionUrl);
     }
 
     delateData(id) {
-
         const options = { method: 'DELETE' };
-        return this._fetch(options, `/${id}`);
+        return this._fetch(options, this.excursionUrl , `/${id}`);
     }
 
     updateData(data, id) {
@@ -44,7 +45,18 @@ class API {
             headers: { 'Content-Type': 'application/json' }
         };
 
-        return this._fetch(options, `/${id}`);
+        return this._fetch(options, this.excursionUrl , `/${id}`);
+    }
+
+    updateOrder(data) {
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        };
+
+        return this._fetch(options, this.orderUrl);
     }
 }
 
