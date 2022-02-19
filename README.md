@@ -48,7 +48,7 @@ Admin panel: http://localhost:8080/admin.html.
 ### JSON server
 
 If you don't have JSON server installed on your device use command: npm install json-server -g.
-To run JSON server use command: json-server ./data.json --watch.
+To run JSON server use command: npm run api.
 
 Excursion data: http://localhost:3000/excursions.
 

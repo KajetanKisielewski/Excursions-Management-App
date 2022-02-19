@@ -48,7 +48,7 @@ class API {
         return this._fetch(options, this.excursionUrl , `/${id}`);
     }
 
-    updateOrder(data) {
+    addOrder(data) {
 
         const options = {
             method: 'POST',
