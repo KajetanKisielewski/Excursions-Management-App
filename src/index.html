@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScript: API oraz FETCH - client, devmentor.pl</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -50,16 +54,21 @@
                     </div>
                     <div class="order__field">
                         <label class="order__field-name">
-                            Imię i nazwisko: <input class="order__field-input" name="name" />
+                            *Imię i nazwisko: <input class="order__field-input" name="name" />
                         </label>
                     </div>
                     <div class="order__field">
                         <label class="order__field-name">
-                            Email <input class="order__field-input" name="email" />
+                            *Email <input class="order__field-input" name="email" />
                         </label>
                     </div>
                     <div class="order__field order__field--submit">
                         <input class="order__field-input order__field-submit" value="zamawiam" type="submit" />
+                    </div>
+                    <div class="order__annotations">
+                        <p class="order__annotations--paragraph">*Imię musi składać się z conajmniej trzech znaków,
+                            nazwisko z conajmniej dwóch.</p>
+                        <p class="order__annotations--paragraph">*Email musi zawierać @</p>
                     </div>
                 </form>
                 <ul class="panel__summary summary">

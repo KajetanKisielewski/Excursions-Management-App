@@ -1,5 +1,9 @@
 :root {
     font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+
+    --color-background: rgba(255, 255, 255, 0.3);
+    --color-border: rgb(190, 190, 190);
 }
 
 * {
@@ -19,17 +23,18 @@
 
 .panel {
     display: flex;
-    max-width: 120rem;
+    max-width: 192rem;
     max-height: 100vh;
-    margin: 0 auto;
 }
 
 .panel__excursions {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 70%;
+    padding: 2rem;
     list-style: none;
     overflow-y: scroll;
+    padding: 2rem;
 }
 
 
@@ -37,11 +42,11 @@
     display: flex;
     flex-wrap: wrap;
     width: calc(50% - 2rem);
-    border: 2px solid rgb(190, 190, 190);
+    border: 2px solid var(--color-border);
     border-radius: 5px;
     margin: 1rem;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--color-background);
 }
 
 .excursions__item--prototype {
@@ -60,6 +65,7 @@
 }
 
 .excursions__form {
+    align-self: flex-end;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -82,7 +88,6 @@
     margin-top: 2rem;
     padding: 1rem 1.5rem;
     cursor: pointer;
-
 }
 
 .panel__summary {
@@ -102,13 +107,20 @@
 }
 
 .panel__form {
-    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
     flex-basis: 30%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--color-background);
+    padding: 2rem;
+    flex-basis: 30%;
 }
 
-.uploader,
+.order__annotations {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
 .order {
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
@@ -117,5 +129,14 @@
 
 .order__total-price,
 .order__field-name {
-    font-size: 1.5rem;
+    width: 100%;
+    font-size: 2rem;
+    padding: 2rem 0;
+}
+
+.order__field-submit {
+    display: block;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
 }

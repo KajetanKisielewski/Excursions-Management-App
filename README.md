@@ -5,15 +5,14 @@
 
 The aim of the project was to create an application for managing trips both on the client's and admin's side.
 
-In the project I do not focus on the visual part, the goal I chose was to write a functional application with the cleanest code possible, following the principle of single responsibility
+In the project I do not focus on the visual part, the goal I chose was to write a functional application with the cleanest code possible, following the principle of single responsibility.
 
 ### Client
 
 What the user can do?:
 
-* Select a trip by entering the number of ordered tickets in the appropriate field of the form and clicking 'add to the order',
-* order confirmation by entering name, surname and email address into the order field and clicking 'order'.
-
+* Select a trip by entering the number of ordered tickets in the appropriate field of the form and clicking *dodaj do zamówienia*,
+* order confirmation by entering name, surname and email address into the order field and clicking *zamów*.
 
 ### Admin
 
@@ -27,19 +26,28 @@ What the admin can do?:
 ## Technologies
 
 * HTML5,
-* CSS3,
+* CSS (includes custom properties)
 * Javascript,
-* CommonJS,
 * ES6 modules,
 * REST API,
-* JSON Server ( CRUD ).
+* JSON Server (CRUD).
+* Webpack
+* Babel
 
 ## Installation
 
 ### Webpack
 
-Install all npm packages using command: npm i.
-Run webpack using command: npm start
+Install all npm packages using command:
+````
+npm i
+````
+Run webpack using command:
+````
+npm start
+````
+
+From now, the app will be available at:
 
 Client panel: http://localhost:8080/index.html.
 
@@ -47,13 +55,22 @@ Admin panel: http://localhost:8080/admin.html.
 
 ### JSON server
 
-If you don't have JSON server installed on your device use command: npm install json-server -g.
-To run JSON server use command: npm run api.
+If you don't have JSON server installed on your device use command:
+````
+npm install json-server -g
+````
+To run JSON server use command:
+````
+npm run api
+````
 
+From now, the API will be available at:
+````
 Excursion data: http://localhost:3000/excursions.
-
+````
+````
 Order data: http://localhost:3000/orders.
-
+````
 
 Our communication with the running API will be via fetch(). For older browsers support we will use polyfill, exactly whatwg-fetch.
 

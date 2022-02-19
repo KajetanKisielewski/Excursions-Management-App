@@ -1,4 +1,4 @@
-class Excursions {
+export default class Excursions {
     constructor(api, DOMFinder, validation, view, dataCreator) {
         this.apiService = api;
         this.DOMFinder = DOMFinder;
@@ -18,7 +18,6 @@ class Excursions {
 
         form.addEventListener('submit' , e => {
             e.preventDefault();
-
             const targetEl = e.target;
             const data = this.dataCreator.createDataToCreateExcursion(targetEl);
 
@@ -33,16 +32,14 @@ class Excursions {
 
         ulEl.addEventListener('click' , e => {
             e.preventDefault();
-
             const targetEl = e.target;
 
             if( this.validation.isElementContainsClass(targetEl , 'excursions__field-input--remove') ) {
+                const id = this.DOMFinder.findIdFromRoot(targetEl);
 
-               const id = this.DOMFinder.findIdFromRoot(targetEl);
-
-               this.apiService.delateData(id)
-                   .catch( err => console.error(err) )
-                   .finally( () => this.loadExcursions() );
+                this.apiService.delateData(id)
+                    .catch( err => console.error(err) )
+                    .finally( () => this.loadExcursions() );
             }
         })
     }
@@ -54,10 +51,8 @@ class Excursions {
             const targetEl = e.target;
 
             if( this.validation.isElementContainsClass(targetEl , 'excursions__field-input--update') ) {
-                console.log('abc')
 
                 if( this.validation.isItemEditable(targetEl) ) {
-
                     const id = this.DOMFinder.findIdFromRoot(targetEl);
                     const data = this.dataCreator.createDataToUpdate(targetEl);
 
@@ -65,13 +60,11 @@ class Excursions {
                         .catch( err => console.error(err) )
                         .finally( () => {
                             targetEl.value = 'edytuj';
-                            this.validation.setItemEditable(targetEl , false);
+                            this.view.setItemEditable(targetEl , false);
                         });
                 }
-                else {
-                    targetEl.value = 'zapisz'
-                    this.validation.setItemEditable(targetEl , true);
-                }
+                targetEl.value = 'zapisz'
+                this.view.setItemEditable(targetEl , true);
             }
         })
     }
@@ -89,7 +82,6 @@ class Excursions {
                 if( this.validation.validateCurrentExcursionData(targetEl) ) {
 
                     const summaryList = this.DOMFinder.findSummaryRoot();
-
                     const data = this.dataCreator.createCurrentExcursionData(targetEl);
                     const summaryItem = this.view.createSummaryItem(data)
 
@@ -107,7 +99,6 @@ class Excursions {
 
         summaryList.addEventListener('click' , e => {
             e.preventDefault();
-
             const targetEl = e.target;
 
             if( this.validation.isElementContainsClass(targetEl , 'summary__btn-remove') ) {
@@ -118,15 +109,12 @@ class Excursions {
     }
 
     orderExcursion = () => {
-
-        const orderButton = document.querySelector('.order__field--submit');
+        const orderButton = this.DOMFinder.findOrderButton();
 
         orderButton.addEventListener('click' , (e) => {
-
             e.preventDefault();
 
             const targetEl = e.target;
-
             const data = this.dataCreator.createOrderData();
 
             if( this.validation.validateOrderForm(data) ) {
@@ -141,7 +129,4 @@ class Excursions {
             }
         })
     }
-
 }
-
-export default Excursions;

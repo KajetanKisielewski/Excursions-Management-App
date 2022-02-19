@@ -12,8 +12,8 @@ export default class ExcursionValidation {
     }
 
     validateCurrentExcursionData(targetElement) {
-        const adultsQuantity = parseInt(targetElement.parentElement.previousElementSibling.previousElementSibling.children[0].children[1].value);
-        const childrenQuantity = parseInt(targetElement.parentElement.previousElementSibling.children[0].children[1].value);
+        const adultsQuantity = parseInt( this.DOMFinder.findCurrentExcursionAdultQuantity(targetElement) );
+        const childrenQuantity = parseInt( this.DOMFinder.findCurrentExcursionChildrenQuantity(targetElement));
 
         if( !isNaN(adultsQuantity) && adultsQuantity >= 0 && !isNaN(childrenQuantity) && childrenQuantity >= 0 ) { return true };
         return alert('The value provided must be an integer');
@@ -25,14 +25,6 @@ export default class ExcursionValidation {
         const isEditable = [...EditabledItemList].every( item => item.isContentEditable );
 
         return isEditable;
-    }
-
-    setItemEditable(targetElement, value) {
-        console.log(targetElement, value)
-        const rootItem = this.DOMFinder.findItemRoot(targetElement);
-        const EditabledItemList = this.DOMFinder.findEditabledItems(rootItem);
-
-        EditabledItemList.forEach( item => item.contentEditable = value )
     }
 
     isElementContainsClass(element, className) {

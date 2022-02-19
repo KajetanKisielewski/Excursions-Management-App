@@ -1,10 +1,10 @@
 import './../css/admin.css';
 
-import API from './API';
-import ExcursionDOMFinder from './ExcursionDOMFinder';
-import ExcursionValidation from './ExcursionValidation';
-import ExcursionView from './ExcursionView';
-import ExcursionDataCreator from './ExcursionDataCreator';
+import API from './providers/API';
+import ExcursionDOMFinder from './providers/ExcursionDOMFinder';
+import ExcursionValidation from './providers/ExcursionValidation';
+import ExcursionView from './providers/ExcursionView';
+import ExcursionDataCreator from './providers/ExcursionDataCreator';
 import Excursions from './Excursions';
 
 const init = () => {

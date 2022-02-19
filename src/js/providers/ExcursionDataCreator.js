@@ -4,39 +4,20 @@ export default class ExcursionDataProvider {
     }
 
     createOrderData = () => {
-        const name = document.querySelector('[name=name]').value;
-        const email = document.querySelector('[name=email]').value;
+        const name = this.DOMFinder.findUserNameInput().value;
+        const email = this.DOMFinder.findUserEmailInput().value;
         const excursionDetails = this._createExcursionDetails();
 
         return { name , email , excursionDetails };
     }
 
-    _createExcursionDetails = () => {
-
-        const excursionsList = this.DOMFinder.findSummaryRoot().children
-        const excursionDetails = {};
-
-        for(let i=1; i<excursionsList.length; i++) {
-
-            const excursionTitle = excursionsList[i].children[0].children[0].innerText;
-            const excursionTotalPrice = excursionsList[i].children[0].children[1].innerText;
-            const excursionTotalPriceDetails = excursionsList[i].children[1].innerText;
-
-            excursionDetails[i] = {excursionTitle, excursionTotalPrice, excursionTotalPriceDetails}
-        }
-
-        return excursionDetails;
-    }
-
     createCurrentExcursionData = (targetElement) => {
 
-        const currentExcursionTitle = targetElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild.innerText;
-
-        const currentExcursionAdultsPrice = targetElement.parentElement.previousElementSibling.previousElementSibling.children[0].childNodes[1].innerText;
-        const currentExcursionAdultQuantity = targetElement.parentElement.previousElementSibling.previousElementSibling.children[0].children[1].value;
-
-        const currentExcursionChildrenPrice = targetElement.parentElement.previousElementSibling.children[0].childNodes[1].innerText;
-        const currentExcursionChildrenQuantity = targetElement.parentElement.previousElementSibling.children[0].children[1].value;
+        const currentExcursionTitle = this.DOMFinder.findCurrentExcursionTitle(targetElement);
+        const currentExcursionAdultsPrice = this.DOMFinder.findCurrentExcursionAdultsPrice(targetElement)
+        const currentExcursionAdultQuantity = this.DOMFinder.findCurrentExcursionAdultQuantity(targetElement)
+        const currentExcursionChildrenPrice = this.DOMFinder.findCurrentExcursionChildrenPrice(targetElement)
+        const currentExcursionChildrenQuantity = this.DOMFinder.findCurrentExcursionChildrenQuantity(targetElement)
 
         const currentExcursionTotalPriceDescription = `Dorośli: ${currentExcursionAdultQuantity} x ${currentExcursionAdultsPrice} PLN , Dzieci: ${currentExcursionChildrenQuantity} x ${currentExcursionChildrenPrice} PLN`;
 
@@ -76,4 +57,19 @@ export default class ExcursionDataProvider {
         }
     }
 
+    _createExcursionDetails = () => {
+        const excursionsList = this.DOMFinder.findSummaryRoot().children
+        const excursionDetails = {};
+
+        for(let i=1; i<excursionsList.length; i++) {
+
+            const excursionTitle = this.DOMFinder.findExcursionItemTitle(excursionsList[i])
+            const excursionTotalPrice = this.DOMFinder.findExcursionTotalPrice(excursionsList[i]);
+            const excursionTotalPriceDetails = this.DOMFinder.findExcursionTotalPriceDetails(excursionsList[i])
+
+            excursionDetails[i] = {excursionTitle, excursionTotalPrice, excursionTotalPriceDetails}
+        }
+
+        return excursionDetails;
+    }
 }
