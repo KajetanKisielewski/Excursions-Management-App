@@ -1,20 +1,25 @@
-
 # Excursions management app
 
 ## General info
 
 The aim of the project was to create an application for managing trips both on the client's and admin's side.
+Communication takes place via a JSON server.
 
 In the project I do not focus on the visual part, the goal I chose was to write a functional application with the cleanest code possible, following the principle of single responsibility.
 
 ### Client
 
+![](./src/img/userpanel.gif)
+
 What the user can do?:
 
-* Select a trip by entering the number of ordered tickets in the appropriate field of the form and clicking *dodaj do zamówienia*,
-* order confirmation by entering name, surname and email address into the order field and clicking *zamów*.
+* Select excursion by entering the number of ordered tickets in the appropriate field of the form and clicking ***dodaj do zamówienia***,
+* remove excursion by click the ***X*** at summary panel,
+* order confirmation by entering name, surname and email address into the order field and clicking ***zamów***.
 
 ### Admin
+
+![](./src/img/adminpanel.gif)
 
 What the admin can do?:
 
@@ -76,7 +81,7 @@ Our communication with the running API will be via fetch(). For older browsers s
 
 ## Solutions provided in the project
 
-Due to the fact that the code was repeatable in many places for the client panel and the admin panel, I decided to create two classes (API.js and Excursion.js) containing appropriate methods that both panels can use. I followed the principle of single responsibility when creating classes.
+Due to the fact that the code was repeatable in many places for the client panel and the admin panel, I decided to create some classes containing appropriate methods that both panels can use. Each class is responsible for a single thing, e.g. Excursion Validation - responsible for validation, or ExcursionDOMFinder, responsible for searching for elements. I followed the principle of single responsibility when creating classes.
 
 
 ## Author
